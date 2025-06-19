@@ -140,7 +140,6 @@ def download_recipe(recipe_id):
     
     #Get language from query string
     target_lang = request.args.get('language', 'english')
-    print(target_lang)
 
     lang_map = {
         'english' : 'en',  
@@ -155,10 +154,8 @@ def download_recipe(recipe_id):
 
     if target_lang in lang_map:
         target_code = lang_map[target_lang]
-        print(target_code)
-        print("Original Content:", recipe.content)
         translated_content = GoogleTranslator(source='auto', target=target_code).translate(recipe.content)
-        print("Translated Content:", translated_content)
+        
 
         translated_preferences = GoogleTranslator(source='auto', target=target_code).translate(recipe.preferences)
         
