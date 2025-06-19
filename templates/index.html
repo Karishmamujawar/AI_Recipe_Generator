@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Recipe Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url("{{ url_for('static', filename='bg4.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="background-overlay">
+    <div class="container">
+      <h1>AI Recipe Generator <span>🔍</span></h1>
+
+      <form method="POST">
+        <textarea name="ingredients" placeholder="Enter ingredients like chicken, rice, garlic..." required></textarea>
+
+        <h3>Select Dietary Preferences:</h3>
+        <div class="preferences">
+          {% for option in ['Vegetarian', 'Vegan', 'Jain', 'Keto', 'Paleo', 'Low-Carb', 'Gluten-Free', 'Nut-Free'] %}
+            <label><input type="checkbox" name="diet" value="{{ option.lower() }}"> {{ option }}</label><br>
+          {% endfor %}
+        </div>
+
+        <div class="form-footer">
+          <div>
+            <label for="cook_time">Cooking Time:</label>
+            <select name="cook_time">
+              <option value="15">Under 15 mins</option>
+              <option value="30">Under 30 mins</option>
+              <option value="60">Under 60 hour</option>
+              
+            </select>
+          </div>
+
+          <!-- <div>
+            <label for="language">Choose Language:</label>
+            <select name="language">
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Telugu">Telugu</option>
+            </select>
+          </div> -->
+        </div>
+
+        <button type="submit" class="generate-btn">Generate Recipe</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

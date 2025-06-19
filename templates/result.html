@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Recipe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+  
+   <!-- Link to Google Fonts for Unicode -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      
+      background: url("{{ url_for('static', filename='bi2.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+
+
+</head>
+<body>
+    
+  <div class="container">
+    <h2>Recipe with: {{ recipe.ingredients }}</h2>
+    
+    {% if recipe.image_url %}
+    <div style="display: flex; justify-content: center;">
+      <img src="{{ recipe.image_url }}" alt="Dish Image" style="width:350px; height: 250px; border-radius:12px; margin:20px 0;">
+      </div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('translate_recipe', recipe_id=recipe.id) }}">
+  <label for="language"><strong>Change Language:</strong></label>
+  <select name="language" id="language">
+    <option value="english" {% if selected_lang == 'english' %}selected{% endif %}>English</option>
+    <option value="hindi" {% if selected_lang == 'hindi' %}selected{% endif %}>Hindi</option>
+    <option value="tamil" {% if selected_lang == 'tamil' %}selected{% endif %}>Tamil</option>
+    <!-- <option value="telugu" {% if selected_lang == 'telugu' %}selected{% endif %}>Telugu</option> -->
+    <option value="kannada" {% if selected_lang == 'kannada' %}selected{% endif %} >Kannada</option>
+  </select>
+  <button type="submit">Translate</button>
+</form>
+
+    
+    <pre>{{ translated_content if translated_content else recipe.content }}</pre>
+
+    <br>
+    <!-- templates/result.html -->
+<h3>Your Selected Dietary Preferences:</h3>
+<p>{{ translated_preferences if translated_preferences else recipe.preferences }}</p>
+
+
+   <div style="margin-top: 20px;text-align: center;">
+  {% if prev %}
+    <a href="{{ url_for('view_recipe', recipe_id=prev.id) }}">⬅ Previous</a>
+  {% endif %}
+  
+  {% if next %}
+    <a href="{{ url_for('view_recipe', recipe_id=next.id) }}" style="margin-left:20px;">Next ➡</a>
+  {% endif %}
+  <br/>
+  <br>
+  <form method="GET" action="{{ url_for('download_recipe', recipe_id=recipe.id) }}" >
+  <input type="hidden" name="language" value="{{ selected_lang }}">
+  <button type="submit">📥 Download as PDF</button>
+</form>
+</div>
+<br>
+    <a href="/">🔙 Generate Another</a>
+  
+  </div>
+</body>
+</html>

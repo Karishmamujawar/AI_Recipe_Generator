@@ -1,0 +1,111 @@
+
+ @font-face {
+        font-family: 'NotoSans';
+        src: url('../fonts/NotoSans-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'NotoSansDevanagari';
+        src: url('../fonts/NotoSansDevanagari-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'NotoSansTamil';
+       src: url('../fonts/NotoSansTamil-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'NotoSansTelugu';
+        src: url('../fonts/NotoSansTelugu-Regular.ttf');
+    }
+    @font-face {
+       font-family: 'NotoKannada';
+       src: url("../fonts/NotoSansKannada-Regular.ttf");
+}
+
+
+
+body {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    background-color: #fff4ec;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'NotoSans', 'NotoSansDevanagari', 'NotoSansTamil', 'NotoSansTelugu','NotoKannada', sans-serif;
+}
+
+.background-overlay {
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h2, h3 {
+    color: #333;
+    margin-top: 0;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e25700;
+}
+
+pre {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #4b0082;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
