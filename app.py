@@ -166,7 +166,7 @@ def download_recipe(recipe_id):
     options = {
         'encoding': "UTF-8",
         'no-outline': None,
-        'enable-local-file-access': '',
+        'enable-local-file-access': None,
         'quiet': '',
         }  
     
