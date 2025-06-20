@@ -140,6 +140,7 @@ def download_recipe(recipe_id):
     
     #Get language from query string
     target_lang = request.args.get('language', 'english')
+    
 
     lang_map = {
         'english' : 'en',  
@@ -154,9 +155,9 @@ def download_recipe(recipe_id):
 
     if target_lang in lang_map:
         target_code = lang_map[target_lang]
-        translated_content = GoogleTranslator(source='auto', target=target_code).translate(recipe.content)
+       
         
-
+        translated_content = GoogleTranslator(source='auto', target=target_code).translate(recipe.content)
         translated_preferences = GoogleTranslator(source='auto', target=target_code).translate(recipe.preferences)
         
     
@@ -216,6 +217,15 @@ def translate_recipe(recipe_id):
 
 
     return render_template("result.html", recipe=recipe, prev=prev, next=next, translated_content=translated_content, translated_preferences=translated_preferences, selected_lang=target_lang)
+
+
+
+
+#View all recipes
+@app.route('/viewallrecipes', methods=['GET'])
+def viewAll():
+    recipe = Recipe.query.order_by(Recipe.created_at.desc()).all()
+    return render_template('viewall.html', recipes = recipe)
 
 
 

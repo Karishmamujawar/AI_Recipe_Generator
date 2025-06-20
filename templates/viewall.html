@@ -1,0 +1,25 @@
+<!-- templates/all_recipes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Recipes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>All Generated Recipes</h2>
+    <ul>
+      {% for recipe in recipes %}
+        <li>
+          <a href="{{ url_for('view_recipe', recipe_id=recipe.id) }}">
+            {{ recipe.ingredients[:50] }}...
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="/">🔙 Back to Generator</a>
+ 
+  </div>
+</body>
+</html>
