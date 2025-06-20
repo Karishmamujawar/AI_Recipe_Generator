@@ -5,11 +5,11 @@
     }
     @font-face {
         font-family: 'NotoSansDevanagari';
-        src: url('../fonts/NotoSansDevanagari-Regular.ttf');
+        src: url('file:///app/static/fonts/NotoSansDevanagari-Regular.ttf');
     }
     @font-face {
         font-family: 'NotoSansTamil';
-       src: url('../fonts/NotoSansTamil-Regular.ttf');
+       src: url('C:\Users\dell\Documents\GitHub\AI_Recipe_Generator\static\fonts\NotoSansTamil-Regular.ttf');
     }
     @font-face {
         font-family: 'NotoSansTelugu';
